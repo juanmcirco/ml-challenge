@@ -17,12 +17,13 @@ export default function Results() {
   )
 
   if (error) return <div>Failed to load user</div>
-  if (!data) return <div>Loading...</div>
+  if (!data) return <Container><Header />Loading...</Container>
 
   return <Container>
     <Header />
-    {data.items && data.items.map(item =>
-      <ResultRows item={item} key={item.id} />
+    {JSON.stringify(data.breadCrumb)}
+    {data.items && data.items.map((item, idx) =>
+      <ResultRows item={item} key={item.id} idx={idx} />
     )}
     {data.item && <ResultDescription item={data.item} key={data.item.id} />}
   </Container>

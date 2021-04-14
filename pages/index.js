@@ -3,12 +3,8 @@ import Header from '../components/Header'
 
 const results = () => {
   return (
-    <div>
-      <Header />
-    </div>
+    <Header />
   )
 }
-
-
 
 export default results

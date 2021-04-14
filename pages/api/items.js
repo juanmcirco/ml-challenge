@@ -9,6 +9,9 @@ export default async function itemsHandler(req, res) {
     const { data } = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${q}`);
     const findCategories = data.available_filters?.filter(cat => cat.id === 'category')[0]?.values
     const categories = findCategories ? findCategories.map(val => val.name) : []
+    const categoriesResults = findCategories ? findCategories.map(val => val.results) : [];
+    const resultsMax = Math.max(...categoriesResults)
+    const breadCrumb = findCategories?.filter(cat => cat.results === resultsMax)[0]
     const items = data.results.map(item => {
       return {
         id: item.id,
@@ -20,7 +23,8 @@ export default async function itemsHandler(req, res) {
         },
         picture: item.thumbnail,
         condition: item.condition,
-        free_shipping: item.shipping.free_shipping
+        free_shipping: item.shipping.free_shipping,
+        state: item.seller_address.state.name
       }
     })
 
@@ -32,6 +36,7 @@ export default async function itemsHandler(req, res) {
             lastname: 'Barreto Zacarias'
           },
           categories: categories,
+          breadCrumb: breadCrumb,
           items: items
         })
         break

@@ -2,36 +2,57 @@ import React from 'react'
 import Searchbox from './Searchbox'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
+import Grid from '@material-ui/core/Grid';
+import Link from 'next/link'
 
 export default function Header() {
-    const router = useRouter()
-    const handleOptionSelected = (search) => {
-        router.push(`/items/items?q=${search}`)
-    }
+  const router = useRouter()
+  const handleOptionSelected = (search) => {
+    router.push(`/items/items?q=${search}`)
+  }
 
-    return (
-        <HeaderContainer>
+  return (
+    <Container>
+      <Grid container spacing={3} xs={12} justify='center'>
+        <Grid item xs={10}>
+          <HeaderContainer>
             <SearchComponent>
-                <img src='https://http2.mlstatic.com/frontend-assets/ui-navigation/5.14.3/mercadolibre/logo__large_plus.png' height='34' width='134' />
-                <Searchbox optionSelected={handleOptionSelected} />
+              <Logo><Link href="/"><img src='https://http2.mlstatic.com/frontend-assets/ui-navigation/5.14.3/mercadolibre/logo__large_plus.png' height='34' width='134' /></Link></Logo>
+              <Searchbox optionSelected={handleOptionSelected} />
             </SearchComponent>
-        </HeaderContainer>
-    )
+          </HeaderContainer>
+        </Grid>
+      </Grid>
+    </Container>
+  )
 }
 
+
+const Container = styled.div` 
+  max-width: 1200px;
+  margin: auto;
+`
+
 const HeaderContainer = styled.div`
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: #fff159;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: 5px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: ${props => props.theme.meli.brandColor};
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 5px;
 `
 const SearchComponent = styled.div`
-    width: 1000px;
-    margin: auto;
-    display: flex;
+  width: 950px;
+  margin: auto;
+  display: flex;
+`
+
+const Logo = styled.div`
+  margin: 0 16px;
+  margin-left: -28px;
+  display: flex;
+  cursor: pointer;
 `
