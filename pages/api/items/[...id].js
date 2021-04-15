@@ -10,6 +10,13 @@ export default async function itemsHandler(req, res) {
     const { data } = await axios.get(`https://api.mercadolibre.com/items/${id}`);
     const description = await axios.get(`https://api.mercadolibre.com/items/${id}/description`);
 
+    const { data: search } = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${data.title}`);
+    const findCategories = search.available_filters?.filter(cat => cat.id === 'category')[0]?.values
+    const categoriesResults = findCategories ? findCategories.map(val => val.results) : [];
+    const resultsMax = Math.max(...categoriesResults)
+    const categoriesInFilters = search.filters?.filter(cat => cat.id === 'category')[0]?.values
+    const breadCrumb = findCategories?.filter(cat => cat.results === resultsMax)[0] || categoriesInFilters[0]
+
     const items = {
       id: data.id,
       title: data.title,
@@ -34,7 +41,7 @@ export default async function itemsHandler(req, res) {
             lastname: 'Barreto Zacarias'
           },
           item: items,
-          breadCrumb: data.category_id
+          breadCrumb: { last: breadCrumb, current: { id: data.category_id, name: data.title } }
         })
         break
 
@@ -43,6 +50,7 @@ export default async function itemsHandler(req, res) {
         res.status(405).end(`Method ${method} Not Allowed`)
     }
   } catch (error) {
+    throw error
     console.log(error)
   }
 

@@ -11,7 +11,8 @@ export default async function itemsHandler(req, res) {
     const categories = findCategories ? findCategories.map(val => val.name) : []
     const categoriesResults = findCategories ? findCategories.map(val => val.results) : [];
     const resultsMax = Math.max(...categoriesResults)
-    const breadCrumb = findCategories?.filter(cat => cat.results === resultsMax)[0]
+    const categoriesInFilters = data.filters?.filter(cat => cat.id === 'category')[0]?.values
+    const breadCrumb = findCategories?.filter(cat => cat.results === resultsMax)[0] || categoriesInFilters[0]
     const items = data.results.map(item => {
       return {
         id: item.id,

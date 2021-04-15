@@ -45,14 +45,14 @@ const HeaderContainer = styled.div`
   padding: 5px;
 `
 const SearchComponent = styled.div`
-  width: 950px;
+  width: 990px;
   margin: auto;
   display: flex;
 `
 
 const Logo = styled.div`
   margin: 0 16px;
-  margin-left: -28px;
+  margin-left: -10px;
   display: flex;
   cursor: pointer;
 `

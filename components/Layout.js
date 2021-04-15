@@ -6,7 +6,7 @@ function Layout(props) {
           body {
             margin: 0;
             padding: 0;
-            padding-top: 70px;
+            padding-top: 42px;
             font-size: 18px;
             font-weight: 300;
             line-height: 1.8;

@@ -12,6 +12,7 @@ export default function Searchbox({ optionSelected }) {
   const [cookies, setCookie] = useCookies();
   const [value, setValue] = useState(cookies.LastSearch || null)
   const [visible, setVisible] = useState(false)
+
   useEffect(() => {
     let active = true;
 
@@ -69,11 +70,12 @@ export default function Searchbox({ optionSelected }) {
   return (
     <SearchBoxContainer>
       <Form onSubmit={onSubmit} >
-        {options.length >= 1 && visible && <SuggestionContainer onBlur={() => { debugger }}>
-          <SuggestionList>
-            {options.map((value) => <Suggestion onClick={goToProduct}>{value.name}</Suggestion>)}
-          </SuggestionList>
-        </SuggestionContainer>
+        {options.length >= 1 && visible &&
+          <SuggestionContainer onBlur={() => { debugger }}>
+            <SuggestionList>
+              {options.map((value, idx) => <Suggestion onClick={goToProduct} key={`id_${idx}`} tabIndex={idx} >{value.name}</Suggestion>)}
+            </SuggestionList>
+          </SuggestionContainer>
         }
         <InputContainer>
           <InputWrapper type="text" placeholder="Nunca dejes de buscar" onChange={handleChange} style={{ paddingLeft: 10 }} defaultValue={value} value={value} onClick={() => { setVisible(true) }} />
