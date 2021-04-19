@@ -4,14 +4,25 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useCookies } from "react-cookie";
 import SearchIcon from '@material-ui/icons/Search';
+import { useRouter } from 'next/router'
 
 export default function Searchbox({ optionSelected }) {
+  const router = useRouter()
+
+  const { q, category } = router.query
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
   const [cookies, setCookie] = useCookies();
   const [value, setValue] = useState(cookies.LastSearch || null)
   const [visible, setVisible] = useState(false)
+
+
+  useEffect(() => {
+    const lastSearch = q || category;
+    setCookie("LastSearch", lastSearch);
+    setValue(lastSearch)
+  }, [router]);
 
   useEffect(() => {
     let active = true;
@@ -22,6 +33,7 @@ export default function Searchbox({ optionSelected }) {
     (async () => {
       const { data } = await axios(`/api/autosuggest?q=${cookies.LastSearch}`)
       const autosuggest = await data.suggestions;
+
 
       if (active) {
         setOptions(autosuggest.map((key) => { return { name: key.q } }));

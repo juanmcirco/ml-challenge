@@ -92,6 +92,9 @@ const Cover = styled(CardMedia)`
   height: 680px;
   margin-top: 32px;
   margin-left: 32px;
+  background-size: auto !important;
+  background-position-x: center !important;
+  background-position-y: center !important;
 `
 
 const Content = styled(CardContent)`
