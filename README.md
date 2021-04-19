@@ -25,5 +25,7 @@ npm run dev -- -p #### (número de puerto)
 
 * **Manu Barreto** - *Desarrollador SR front-end* - [manubarreto](https://www.linkedin.com/in/juan-manuel-barreto-zacarias-07ab89b/)
 
-¡¡Gracias!!
+¡¡Muchas gracias!!
 
+## Observaciones: 
+En algunas busquedas la API me devuelve error de servidor(Internal server error) a veces medio random por lo general sucede en la pagina de detalle, puede que se crucen con una busqueda con este error y desde la vista muestro la siguiente leyenda: "No encontramos el producto que deseas..."
