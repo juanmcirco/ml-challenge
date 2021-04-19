@@ -118,6 +118,9 @@ const InputWrapper = styled.input`
   :focus {
     outline: -webkit-focus-ring-color auto 0px !important;
   }
+  @media (max-width: 600px) {
+    padding:0
+  }
 `
 
 const SearchBoxContainer = styled.div`
@@ -174,10 +177,13 @@ const Search = styled.div`
     content: '';
     display: block;
     width:34px;
-     height: 34px;
+    height: 34px;
     border-left: 1px solid ${props => props.theme.meli.veryLightGray};
     position: absolute;
     top: 6.5px;
+  }
+  @media (max-width: 600px) {
+    margin-right: 10px;
   }
 `
 

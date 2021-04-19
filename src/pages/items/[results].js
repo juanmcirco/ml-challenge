@@ -78,6 +78,15 @@ const Container = styled.div`
   border-radius: 0;
 `
 const BreadCrumb = styled.div`
+   
+    @media (max-width: 600px) {
+      display: block;
+      width: 200;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      resize: horizontal;
+    };
   a {
     font-size:14px; 
     line-height: 14px;
@@ -86,6 +95,9 @@ const BreadCrumb = styled.div`
     cursor: pointer;
     margin:16px 0;
     display: inline-block;
+    @media (max-width: 600px) {
+      display: initial;
+    }
     ::after{
       content:">";
       margin: 16px 8px;

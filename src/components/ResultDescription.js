@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 export default function ResultDescription({ item }) {
   return (
     <Container>
-      <Grid container spacing={3} xs={12} justify='center'>
+      <Grid container xs={12} justify='center'>
         <Grid item xs={10}>
           <CardContainer>
             <Details >
@@ -68,19 +68,23 @@ ResultDescription.propTypes = {
 const Container = styled.div` 
   max-width: 1200px;
   margin: auto;
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 `
 
 const CardContainer = styled(Card)`
   display: block;
-  width: 886;
-  min-height: 886;
   margin: auto;
   border-bottom: thin solid #eee;
-  border-radius: 0
+  border-radius: 0mm;
 `
 
 const Details = styled.div`
   display: flex;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
 const Content = styled(CardContent)`
@@ -93,6 +97,9 @@ const Description = styled.div`
   flex-grow: 1;
   margin: 32px;
   max-width:60%;
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
   overflow: hidden;
 `
 const Title = styled.div`
@@ -130,6 +137,9 @@ const DescriptionTitle = styled.div`
   margin-top:16px;
   margin-bottom:32px;
   color: ${props => props.theme.meli.darkGray};
+  @media (max-width: 600px) {
+    line-height: inherit;
+  }
 `
 const DescriptionP = styled.div`
   font-size: 16px;
@@ -141,6 +151,9 @@ const Info = styled.div`
   color: ${props => props.theme.meli.gray};
   margin: 16px 0;
   line-height: 0;
+  @media (max-width: 600px) {
+    line-height: inherit;
+  }
 `
 const Price = styled(NumberFormat)`
   font-size: 46px;
@@ -155,4 +168,11 @@ const Image = styled.img`
   height: 680px;
   margin-top: 32px;
   margin-left: 32px;
+  @media (max-width: 600px) {
+    width:100%;
+    height: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    object-fit: cover;
+  }
 `

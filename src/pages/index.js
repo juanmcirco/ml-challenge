@@ -7,8 +7,8 @@ const results = () => {
   return (
     <Container>
       <Header />
-      <Grid container spacing={3} xs={12} justify='center'>
-        <Grid item xs={10}>
+      <Grid container spacing={3} xs={12} md={12} justify='center'>
+        <Grid item xs={12} md={10}>
           <Bievenidos>
             <h1>
               ¡Bienvenidos al Challenge de Meli! 💪
@@ -24,7 +24,7 @@ const results = () => {
 }
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
 `
 const Bievenidos = styled.div`

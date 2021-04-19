@@ -81,10 +81,11 @@ const Container = styled.div`
 
 const Root = styled(Card)`
   display: flex;
-  width: 886;
-  min-height: 150;
   border-bottom: thin solid #eee;
-  border-radius: ${props => props.idx === 0 ? '4px 4px 0 0' : '0px'}
+  border-radius: ${props => props.idx === 0 ? '4px 4px 0 0' : '0px'};
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
 const Cover = styled(CardMedia)`
@@ -93,12 +94,19 @@ const Cover = styled(CardMedia)`
   border-radius:4px;
   object-fit: contain;
   margin:16px;
+  @media (max-width: 600px) {
+    width: 100%;
+    margin:0;
+  }
 `
 
 const Details = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 700px;
+  @media (max-width: 600px) {
+    min-width: auto;
+  }
 `
 
 const Content = styled(CardContent)`

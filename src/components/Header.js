@@ -46,6 +46,9 @@ const HeaderContainer = styled.div`
 `
 const SearchComponent = styled.div`
   width: 990px;
+  @media (max-width: 600px) {
+    width: auto;
+  }
   margin: auto;
   display: flex;
 `
@@ -55,4 +58,7 @@ const Logo = styled.div`
   margin-left: -10px;
   display: flex;
   cursor: pointer;
+  @media (max-width: 600px) {
+    margin-right: 10px;
+  }
 `
