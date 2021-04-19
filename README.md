@@ -6,11 +6,13 @@ Test para el ingreso a Mercadolibre, realizado con nextjs
 
 Para poder correr localmente el proyecto: 
 
-# with npm
+### Instalar con npm
 npm install
+
+#### Correrlo localmente
 npm run dev 
 
-## instalar en un puerto particular
+#### Correrlo localmente en un puerto particular
 npm run dev -- -p #### (número de puerto)
 
 ## Construido con 🛠️
