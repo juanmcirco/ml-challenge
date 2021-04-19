@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Autocomplete from '@material-ui/lab/Autocomplete/Autocomplete';
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useCookies } from "react-cookie";
 import SearchIcon from '@material-ui/icons/Search';
@@ -78,13 +78,25 @@ export default function Searchbox({ optionSelected }) {
           </SuggestionContainer>
         }
         <InputContainer>
-          <InputWrapper type="text" placeholder="Nunca dejes de buscar" onChange={handleChange} style={{ paddingLeft: 10 }} defaultValue={value} value={value} onClick={() => { setVisible(true) }} />
+          <InputWrapper type="text" placeholder="Nunca dejes de buscar" autoComplete={false} onChange={handleChange} style={{ paddingLeft: 10 }} defaultValue={value} value={value} onClick={() => { setVisible(true) }} />
           <Search><Lupita onClick={onSubmit} /></Search>
         </InputContainer>
       </Form>
     </SearchBoxContainer>
   );
 }
+
+/**
+ * Protypes
+ */
+
+Searchbox.propTypes = {
+  optionSelected: PropTypes.func
+}
+
+/**
+ * Styles
+ */
 
 const InputWrapper = styled.input`
   padding: 7px 60px 9px 15px;

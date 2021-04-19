@@ -11,14 +11,26 @@ import Grid from '@material-ui/core/Grid';
 export default function Results() {
   const router = useRouter()
   const fetcher = (url) => fetch(url).then((res) => res.json())
-  const { q, results } = router.query
+  const { q, category, results } = router.query
 
   const { data, error } = useSwr(
-    q ? `/api/items?q=${q}` : `/api/items/${results}`,
+    q ? `/api/items?q=${q}` : category ? `/api/category?q=${category}` : `/api/items/${results}`,
     fetcher
   )
 
-  if (error) return <div>Failed to load user</div>
+  if (error) return (
+    <Container>
+      <Header />
+      <Container>
+        <Grid container spacing={0} xs={12} justify='center'>
+          <Grid item xs={10}>
+            <Loading><div>No encontramos el producto que deseas...</div></Loading>
+          </Grid>
+        </Grid>
+      </Container>
+    </Container >
+  )
+
   if (!data) return (
     <Container>
       <Header />
@@ -45,7 +57,7 @@ export default function Results() {
               <Link href={`/items/items?q=${data.breadCrumb.last.name}`}>{data.breadCrumb.last.name}</Link>
             }
             {data.breadCrumb.current &&
-              <Link href={`/items/${data.breadCrumb.current.id}`}>{data.breadCrumb.current.name}</Link>
+              <Link href={`/items/category?category=${data.breadCrumb.current.id}`}>{data.breadCrumb.current.name}</Link>
             }
           </BreadCrumb>
         </Grid>
@@ -63,7 +75,7 @@ const Container = styled.div`
   margin: auto;
   max-width: 1200px;
   padding: 0;
-  border-radius: 0
+  border-radius: 0;
 `
 const BreadCrumb = styled.div`
   a {

@@ -1,9 +1,9 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
 import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
@@ -47,6 +47,27 @@ export default function ResultDescription({ item }) {
     </Container >
   );
 }
+
+/**
+* Protypes
+*/
+
+ResultDescription.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string,
+    picture: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.shape({
+      amount: PropTypes.string,
+      currency: PropTypes.string
+    }),
+    state: PropTypes.string,
+  })
+}
+
+/**
+ * Styles
+ */
 
 const Container = styled.div` 
   max-width: 1200px;

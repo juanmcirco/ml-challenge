@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Grid from '@material-ui/core/Grid';
 import Header from '../components/Header'
+
 const results = () => {
   return (
     <Container>

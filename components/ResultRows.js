@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -49,6 +50,27 @@ export default function ResultRows({ item, idx }) {
   );
 }
 
+/**
+ * Protypes
+ */
+
+ResultRows.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string,
+    picture: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.shape({
+      amount: PropTypes.string,
+      currency: PropTypes.string
+    }),
+    state: PropTypes.string,
+  }),
+  idx: PropTypes.string
+}
+
+/**
+ * Styles
+ */
 
 const Container = styled.div` 
   max-width: 1200px;
