@@ -108,5 +108,5 @@ const HighlightedRow = styled.div`
 const State = styled.div`
   font-size:12px;
   font-weight: 300;
-  color:#999;
+  color: ${props => props.theme.meli.gray};
 `

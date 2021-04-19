@@ -59,7 +59,7 @@ export default function Results() {
 }
 
 const Container = styled.div`
-  background-color: #ebebeb;
+  background-color: ${props => props.theme.meli.lightGray} ;
   margin: auto;
   max-width: 1200px;
   padding: 0;
@@ -69,7 +69,7 @@ const BreadCrumb = styled.div`
   a {
     font-size:14px; 
     line-height: 14px;
-    color: #999;
+    color: ${props => props.theme.meli.gray};
     text-decoration: none;
     cursor: pointer;
     margin:16px 0;
@@ -88,5 +88,5 @@ const BreadCrumb = styled.div`
 `
 const Loading = styled.div`
   margin:16px 0;
-  color: #999;
+  color: ${props => props.theme.meli.gray};
 `

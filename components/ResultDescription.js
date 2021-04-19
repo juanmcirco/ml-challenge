@@ -106,11 +106,11 @@ const ButtonContainer = styled.div`
 const ButtonWapper = styled(Button)`
   display: flex;
   flex-grow:1;
-  color: white!important;
+  color: ${props => props.theme.meli.white}!important;
   text-transform: inherit !important;
-  background-color: #3483FA!important;
+  background-color: ${props => props.theme.meli.brightBlue}!important;
   :hover {
-    background-color: #2968c8!important
+    background-color: ${props => props.theme.meli.blue}!important
   }
 `
 
@@ -119,16 +119,16 @@ const DescriptionTitle = styled.div`
   line-height:0;
   margin-top:16px;
   margin-bottom:32px;
-  color:#666;
+  color: ${props => props.theme.meli.darkGray};
 `
 const DescriptionP = styled.div`
   font-size: 16px;
-  color:#999;
+  color: ${props => props.theme.meli.gray};
 `
 
 const Info = styled.div`
   font-size: 12px;
-  color: #999;
+  color: ${props => props.theme.meli.gray};
   margin: 16px 0;
   line-height: 0;
 `

@@ -90,10 +90,9 @@ const InputWrapper = styled.input`
   padding: 7px 60px 9px 15px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: ${props => props.theme.meli.white};
   border: 0 rgba(0,0,0,.2);
   flex: 1;
-  //margin: 0 30px;
   :focus {
     outline: -webkit-focus-ring-color auto 0px !important;
   }
@@ -118,8 +117,8 @@ const SuggestionContainer = styled.div`
   position: absolute;
   top: 36px;
   left: 0;
-  background: white;
-  color: #333;
+  background: ${props => props.theme.meli.white};
+  color: ${props => props.theme.meli.veryDarkGray};
   font-size: 16px;
 `
 const SuggestionList = styled.ul`
@@ -132,11 +131,11 @@ const Suggestion = styled.li`
   display: flex; 
   flex-grow: 1;
   border: rgba(0,0,0,.2);
-  color: #333;
+  color: ${props => props.theme.meli.veryDarkGray};
   font-size: 16px;
   :hover{
-    color: white;
-    background-color: #3483FA;
+    color: ${props => props.theme.meli.white};
+    background-color:  ${props => props.theme.meli.brightBlue};
   }
 `
 
@@ -146,7 +145,7 @@ const Search = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color:  ${props => props.theme.meli.white};
   box-sizing: border-box;
   cursor: pointer;
   ::before{
@@ -154,7 +153,7 @@ const Search = styled.div`
     display: block;
     width:34px;
      height: 34px;
-    border-left: 1px solid #e6e6e6;
+    border-left: 1px solid ${props => props.theme.meli.veryLightGray};
     position: absolute;
     top: 6.5px;
   }
@@ -162,7 +161,7 @@ const Search = styled.div`
 
 const Lupita = styled(SearchIcon)`
   font: 300 13.3333px Arial;
-  color: #999;
+  color:  ${props => props.theme.meli.gray};
 `
 const InputContainer = styled.div`
   display: flex;
