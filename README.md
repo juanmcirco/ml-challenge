@@ -12,7 +12,7 @@ npm install
 #### Correrlo localmente
 npm run dev 
 
-#### Correrlo localmente en un puerto particular
+#### Correrlo localmente en un puerto particular (por si el puerto 3000 lo tienen ocupado... 😉)
 npm run dev -- -p #### (número de puerto)
 
 ## Construido con 🛠️
