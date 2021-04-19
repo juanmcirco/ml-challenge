@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
@@ -17,10 +16,7 @@ export default function ResultDescription({ item }) {
         <Grid item xs={10}>
           <CardContainer>
             <Details >
-              <Cover
-                image={item.picture}
-                title={item.title}
-              />
+              <Image src={item.picture} />
               <Content>
                 <Info>{condition[item.condition]} - {item.sold_quantity} vendidos </Info>
                 <Title>{item.title}</Title>
@@ -87,16 +83,6 @@ const Details = styled.div`
   display: flex;
 `
 
-const Cover = styled(CardMedia)`
-  width: 680px;
-  height: 680px;
-  margin-top: 32px;
-  margin-left: 32px;
-  background-size: auto !important;
-  background-position-x: center !important;
-  background-position-y: center !important;
-`
-
 const Content = styled(CardContent)`
   flex: 1 0 auto;
 `
@@ -158,4 +144,15 @@ const Info = styled.div`
 `
 const Price = styled(NumberFormat)`
   font-size: 46px;
+`
+
+const Image = styled.img`
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  height: auto;
+  object-fit: contain;
+  width: 680px;
+  height: 680px;
+  margin-top: 32px;
+  margin-left: 32px;
 `

@@ -12,7 +12,7 @@ export default function Searchbox({ optionSelected }) {
   const { q, category } = router.query
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
-  const loading = open && options.length === 0;
+  const loading = !open && options.length === 0;
   const [cookies, setCookie] = useCookies();
   const [value, setValue] = useState(cookies.LastSearch || null)
   const [visible, setVisible] = useState(false)
@@ -20,7 +20,7 @@ export default function Searchbox({ optionSelected }) {
 
   useEffect(() => {
     const lastSearch = q || category;
-    setCookie("LastSearch", lastSearch);
+    setCookie("LastSearch", lastSearch || '');
     setValue(lastSearch)
   }, [router]);
 
@@ -34,10 +34,8 @@ export default function Searchbox({ optionSelected }) {
       const { data } = await axios(`/api/autosuggest?q=${cookies.LastSearch}`)
       const autosuggest = await data.suggestions;
 
-
       if (active) {
         setOptions(autosuggest.map((key) => { return { name: key.q } }));
-
       }
     })();
 

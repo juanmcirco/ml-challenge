@@ -16,7 +16,7 @@ npm run dev -- -p #### (número de puerto)
 
 ## Postulante
 
-* **Manu Barreto** - *Dev Sr Frotend * - [manubarreto](https://www.linkedin.com/in/juan-manuel-barreto-zacarias-07ab89b/)
+* **Manu Barreto** - *Desarrollador SR front-end* - [manubarreto](https://www.linkedin.com/in/juan-manuel-barreto-zacarias-07ab89b/)
 
-Gracias
+¡¡Gracias!!
 
